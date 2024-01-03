@@ -1,6 +1,8 @@
 *
 !.gitignore
 !kitty
+!kitty/*
 !sway
 !waybar
-!nvim
+!nvim*
+!nvim*/**
