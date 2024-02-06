@@ -3,6 +3,7 @@ require("plugins").setup()
 require("mason-conf").setup()
 require("basics.opts").setup()
 require("basics.colors"):setup()
+require("basics.keymaps").setup()
 
 require("completion").setup()
 require("lsp.lspconfig").setup()
