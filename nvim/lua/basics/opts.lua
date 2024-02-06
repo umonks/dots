@@ -1,4 +1,5 @@
 local m = {}
+
 function m.setup()
 	vim.g.mapleader = " "
 	vim.g.maplocalleader = " "
@@ -9,6 +10,13 @@ function m.setup()
 	vim.wo.rnu = true
 
 	vim.o.mouse = "a"
+
+	vim.g.clipboard = {
+		copy = { ["+"] = 'pbcopy', ["*"] = 'pbcopy' },
+		paste = { ['+'] = 'pbpaste', ['*'] = 'pbpaste' },
+		name = 'pbcopy',
+		cache_enabled = 0
+	}
 
 	vim.o.clipboard = "unnamedplus"
 
@@ -23,6 +31,11 @@ function m.setup()
 	vim.o.completeopt = "menuone,noselect"
 
 	vim.o.termguicolors = true
+
+	-- Tabs
+	vim.o.shiftwidth = 4
+	vim.o.tabstop = 4
+	vim.o.expandtab = true
 end
 
 return m

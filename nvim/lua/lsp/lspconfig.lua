@@ -11,13 +11,15 @@ local function mappings_callback(ev)
 		vim.keymap.set("n", mapping, callback, opts)
 	end
 
+	local builtin = require("telescope.builtin")
 	---
 	-- Navigation
-	nnoremap("gd", vim.lsp.buf.definition)
-	nnoremap("gi", vim.lsp.buf.implementation)
+	nnoremap("gd", builtin.lsp_definitions)
+	nnoremap("gi", builtin.lsp_implementations)
 
 	---
 	-- Info
+	nnoremap("<leader>fs", builtin.lsp_document_symbols)
 	nnoremap("K", vim.lsp.buf.hover)
 	nnoremap("<C-k>", vim.lsp.buf.signature_help)
 
@@ -25,6 +27,15 @@ local function mappings_callback(ev)
 	-- Refactoring
 	nnoremap("<leader>rn", vim.lsp.buf.rename)
 	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+
+	vim.api.nvim_buf_create_user_command(ev.buf, 'Format', function(_)
+		vim.lsp.buf.format()
+	end, { desc = 'Format current buffer with LSP' })
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		callback = function()
+			vim.lsp.buf.format()
+		end
+	})
 end
 
 local function setup_mappings()
@@ -43,13 +54,16 @@ function m.setup()
 	mason.setup()
 
 	mason_lspconfig.setup({
-		ensure_installed = {"lua_ls"}
+		ensure_installed = { "lua_ls" }
 	})
 
+	local capabilities = require('cmp_nvim_lsp').default_capabilities()
 	mason_lspconfig.setup_handlers({
-       		function (server_name) -- default handler (optional)
-       		    lspconfig[server_name].setup {}
-       		end,
+		function(server_name)
+			lspconfig[server_name].setup({
+				capabilities = capabilities
+			})
+		end,
 	})
 
 	setup_mappings()
