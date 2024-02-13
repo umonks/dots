@@ -15,6 +15,8 @@ function keymaps.setup()
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
   vim.keymap.set('n', '<leader>d', function() vim.api.nvim_buf_delete(0, {}) end, { desc = 'Delete current buffer' })
+
+  vim.keymap.set('n', '<leader>ee', "oif err != nil {<cr>}<esc>O", { desc = "Check error in go" })
 end
 
 return keymaps

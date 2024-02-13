@@ -19,7 +19,17 @@ local packages = {
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+              border = "rounded",
+            },
+          },
+        },
+      },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -43,7 +53,14 @@ local packages = {
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  {
+    'folke/which-key.nvim',
+    opts = {
+      window = {
+        border = "rounded",
+      },
+    }
+  },
 
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -87,6 +104,9 @@ local packages = {
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
+    opts = {
+      transparent_mode = true
+    },
   },
 
   {
