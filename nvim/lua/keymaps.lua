@@ -11,11 +11,22 @@ function keymaps.setup()
   -- Diagnostic keymaps
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+  vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+  vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
-  vim.keymap.set('n', '<leader>d', function() vim.api.nvim_buf_delete(0, {}) end, { desc = 'Delete current buffer' })
+  -- Buffers
+  vim.keymap.set('n', '<leader>bd', function() vim.api.nvim_buf_delete(0, {}) end, { desc = 'Delete current buffer' })
+  vim.keymap.set('n', '<leader>sv', function()
+      vim.cmd('vsplit')
+      local win = vim.api.nvim_get_current_win()
+      local buf = vim.api.nvim_create_buf(true, true)
+      vim.api.nvim_win_set_buf(win, buf)
+    end,
+    { desc = 'split current buffer' }
+  )
 
+
+  -- Misc
   vim.keymap.set('n', '<leader>ee', "oif err != nil {<cr>}<esc>O", { desc = "Check error in go" })
 end
 
