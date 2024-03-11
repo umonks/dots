@@ -23,7 +23,14 @@ vim.opt.rtp:prepend(lazypath)
 -- =======================
 -- === install plugins ===
 -- =======================
-require('lazy').setup(require("packages"), {})
+require('lazy').setup(require("packages"), {
+  install = {
+    colorscheme = { "gruvbox" },
+  },
+  ui = {
+    border = "rounded",
+  },
+})
 
 -- =======================
 -- === set vim options ===
