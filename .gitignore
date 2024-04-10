@@ -6,3 +6,5 @@
 !waybar
 !nvim*
 !nvim*/**
+!tmux
+!tmux/*
