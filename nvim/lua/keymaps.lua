@@ -28,6 +28,8 @@ function keymaps.setup()
 
   -- Misc
   vim.keymap.set('n', '<leader>ee', "oif err != nil {<cr>}<esc>O", { desc = "Check error in go" })
+
+  vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 end
 
 return keymaps
