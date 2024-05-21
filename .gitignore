@@ -1,10 +1,5 @@
 *
-!.gitignore
-!kitty
-!kitty/*
-!sway
-!waybar
-!nvim*
-!nvim*/**
+!nvim
+!alacritty
 !tmux
-!tmux/*
+!.zshrc

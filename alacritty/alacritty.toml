@@ -4,6 +4,7 @@ dynamic_padding = true
 decorations = "Buttonless"
 dynamic_title  = true
 
+
 [font]
 normal = { family = "RecMonoLinear Nerd Font" }
 
