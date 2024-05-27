@@ -204,7 +204,11 @@ local packages = {
         -- Configuration here, or leave empty to use defaults
       })
     end
-  }
+  },
+  {
+    "ggandor/leap.nvim",
+    opts = {},
+  },
 }
 
 return packages
