@@ -209,4 +209,10 @@ require("conf.debugger").setup()
 vim.api.nvim_create_user_command('GoAddTags',
   function(opts) require('gomodifytags').GoAddTags(opts.fargs[1], opts.args) end, { nargs = "+" })
 
+vim.filetype.add {
+  extension = {
+    h = "c",
+  }
+}
+
 -- vim: ts=2 sts=2 sw=2 et
