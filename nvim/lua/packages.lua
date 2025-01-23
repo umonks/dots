@@ -212,6 +212,66 @@ local packages = {
       require("leap").create_default_mappings()
     end
   },
+  {
+    "folke/todo-comments.nvim",
+    opts = {},
+  },
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      'leoluz/nvim-dap-go',
+    },
+
+    config = function()
+      require("dap-go").setup()
+    end
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require("neodev").setup({
+        library = { plugins = { "nvim-dap-ui" }, types = true },
+      })
+    end
+  },
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000,
+
+    -- opts = {
+    --   style = "darker",
+    --   transparent = true,
+    --   term_colors = true,
+    -- },
+  },
+
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+      require("everforest").setup({
+        -- Your config here
+      })
+    end,
+  },
+  {
+    'simondrake/gomodifytags',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    opts = {
+      transformation = "snakecase",
+      skip_unexported = true,
+      override = true,
+      options = { "json=omitempty" },
+      parse = { enabled = false, seperator = "--" },
+    },
+  }
 }
 
 return packages
