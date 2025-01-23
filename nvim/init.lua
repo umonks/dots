@@ -119,19 +119,24 @@ require("conf.treesitter").setup()
 --  This function gets run when an LSP connects to a particular buffer.
 require("conf.mason").setup()
 
+
 -- document existing key chains
-require('which-key').register({
-  ['c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['h'] = { name = 'More git', _ = 'which_key_ignore' },
-  ['r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['t'] = { name = '[T]elescope', _ = 'which_key_ignore' },
-  ['w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  ['d'] = { name = '[D]iagnostics', _ = 'which_key_ignore' },
-}, {
-  prefix = "<leader>",
-  noremap = true,
-})
+require('which-key').add {
+  { "<leader>c",  group = "[C]ode",        remap = false },
+  { "<leader>c_", hidden = true,           remap = false },
+  { "<leader>d",  group = "[D]iagnostics", remap = false },
+  { "<leader>d_", hidden = true,           remap = false },
+  { "<leader>g",  group = "[G]it",         remap = false },
+  { "<leader>g_", hidden = true,           remap = false },
+  { "<leader>h",  group = "More git",      remap = false },
+  { "<leader>h_", hidden = true,           remap = false },
+  { "<leader>r",  group = "[R]ename",      remap = false },
+  { "<leader>r_", hidden = true,           remap = false },
+  { "<leader>t",  group = "[T]elescope",   remap = false },
+  { "<leader>t_", hidden = true,           remap = false },
+  { "<leader>w",  group = "[W]orkspace",   remap = false },
+  { "<leader>w_", hidden = true,           remap = false },
+}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
