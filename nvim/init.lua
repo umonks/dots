@@ -42,6 +42,8 @@ require('lazy').setup(require("packages"), {
 vim.o.background = "dark"
 vim.cmd.colorscheme 'gruvbox'
 
+vim.o.clipboard = "unnamedplus"
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
