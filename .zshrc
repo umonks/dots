@@ -57,22 +57,17 @@ append_path ~/go/bin
 append_path ~/bin
 append_path ~/tools/zig/
 append_path ~/.cargo/bin
+append_path ~/.local/bin/
 
 ###
 ## Aliases
-
-alias l='ls -lwah'
-alias ll='ls -lwh'
-alias la='ls -lwAh'
 
 alias v=nvim
 alias z="zellij"
 alias lg="lazygit"
 alias refresh="source ~/.zshrc"
 
-alias am_i_evil="echo yes i am!; ssh evilcorp"
-
-alias virtual="source ./venv/bin/activate"
+alias virt="source ./venv/bin/activate"
 
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 alias k=kubectl
@@ -81,3 +76,7 @@ complete -F __start_kubectl k
 alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
 alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
 
+###
+## Vars
+
+export EDITOR=nvim
