@@ -248,7 +248,6 @@ local packages = {
     --   term_colors = true,
     -- },
   },
-
   {
     "neanias/everforest-nvim",
     version = false,
