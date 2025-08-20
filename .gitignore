@@ -1,0 +1,8 @@
+*
+!nvim
+!nvim/**
+!alacritty
+!alacritty/**
+!zellij
+!zellij/**
+!.zshrc
