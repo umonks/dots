@@ -8,7 +8,7 @@ opacity = 0.80
 
 
 [font]
-normal = { family = "Firacode Nerd Font" }
+normal = { family = "RecMonoLinear Nerd Font" }
 
 [keyboard]
 bindings = [

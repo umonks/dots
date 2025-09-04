@@ -21,11 +21,11 @@ vim.wo.rnu = true
 vim.o.mouse = 'a'
 
 -- tab behaviour
-vim.o.tabstop = 4 
+vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
 -- newline wrap indenting
-vim.o.breakindent = true 
+vim.o.breakindent = true
 
 -- undo history
 vim.o.undofile = true
@@ -39,7 +39,7 @@ vim.wo.signcolumn = "number"
 
 -- update time
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 1000
 
 -- completeopt
 vim.o.completeopt = "menuone,noinsert,preview"

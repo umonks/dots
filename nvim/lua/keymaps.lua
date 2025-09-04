@@ -1,7 +1,7 @@
 local function nnoremap(binding, cmd, opts)
 	vim.keymap.set('n', binding, cmd, opts)
 end
-
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 nnoremap("gd", vim.lsp.buf.definition)
 nnoremap("gD", vim.lsp.buf.declaration)
 nnoremap("gca", vim.lsp.buf.code_action)

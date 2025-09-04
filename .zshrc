@@ -5,6 +5,8 @@ source $ZSH/oh-my-zsh.sh
 ###
 ## Prompt
 
+export LC_ALL=en_US.UTF-8
+
 sep=·
 # Set required options.
 setopt promptsubst
@@ -22,7 +24,7 @@ zstyle ':vcs_info:*:*' actionformats "%S" "%r/%s/%b %u%c (%a)"
 zstyle ':vcs_info:*:*' formats "%S" "$sep %r/%s/%b %u%c"
 zstyle ':vcs_info:*:*' nvcsformats "%~" ""
 # Define prompts.
-PROMPT="%F{214}> %f"
+PROMPT="%F{214}>%f "
 RPROMPT="$FG[242]%(?..%? $sep) %~ "'$vcs_info_msg_1_'"%{$FX[reset]%}"
 
 
@@ -80,3 +82,4 @@ alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 
 ## Vars
 
 export EDITOR=nvim
+export PAGER=less
