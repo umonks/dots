@@ -65,5 +65,4 @@ require("lazy").setup({
 	checker = { enabled = true },
 })
 
-require("autoformat")
 require("keymaps")
