@@ -1,10 +1,9 @@
 return {
-		"neovim/nvim-lspconfig",
-		config = function()
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("ls-attach", { clear = true }),
-				callback = function()
-
+	"neovim/nvim-lspconfig",
+	config = function()
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("ls-attach", { clear = true }),
+			callback = function()
 				vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 					callback = function()
 						vim.lsp.buf.format()
@@ -24,12 +23,16 @@ return {
 				nnoremap("gca", vim.lsp.buf.code_action, { desc = "Get code actions" })
 				nnoremap("<leader>rn", vim.lsp.buf.rename)
 			end
-			})
-		end,
+		})
+	end,
 	dependencies = {
 		{
 			"mason-org/mason.nvim",
-			opts = {},
+			opts = {
+				ui = {
+					border = "rounded",
+				},
+			},
 			dependencies = { "stevearc/dressing.nvim" },
 		},
 

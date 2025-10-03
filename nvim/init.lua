@@ -41,6 +41,15 @@ vim.wo.signcolumn = "number"
 -- completeopt
 vim.o.completeopt = "menuone,noinsert,preview"
 
+vim.o.winborder = "rounded"
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+	desc = 'Highlight when yanking text',
+	group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
 
 -- install lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -63,6 +72,10 @@ require("lazy").setup({
 	spec = { import = "plugins" },
 	install = { colorscheme = { "gruvbox" } },
 	checker = { enabled = true },
+	ui = {
+		border = "rounded",
+	},
 })
 
 require("keymaps")
+require("fold")

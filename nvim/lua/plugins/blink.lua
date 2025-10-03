@@ -14,6 +14,18 @@ return {
 				},
 			},
 		},
+		signature = { enabled = true },
+		completion = {
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 0,
+			},
+			menu = {
+				border = "rounded",
+				draw = { gap = 2 },
+				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+			},
+		},
 	},
 
 	dependencies = {
@@ -28,5 +40,7 @@ return {
 				},
 			},
 		},
+
+		{ "rafamadriz/friendly-snippets" }
 	}
 }
